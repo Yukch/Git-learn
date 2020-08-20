@@ -2,7 +2,7 @@
 笔记整理来源：[廖雪峰Git教程](https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000)
 
 ### 基本操作
-- ` git git init` 初始化一个Git仓库。
+- ` git init` 初始化一个Git仓库。
 - 添加文件到Git仓库，分两步：
    `git add <file>`，注意，可反复多次使用，添加多个文件；
    `git commit -m "message"` 对添加的文件进行提交。
