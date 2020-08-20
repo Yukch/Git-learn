@@ -9,7 +9,7 @@
 - `git status` 查看工作区的状态。
 - `git diff <file>`如果文件被修改，可以查看修改内容。
 - `git reset --hard commit_id`HEAD指向的版本就是当前版本，HEAD^指向前一个版本，因此，Git允许我们在版本的历史之间穿梭。
-- `git log [pretty=oneline]`可以查看提交历史，以便确定要回退到哪个版本。
+- `git log [pretty=oneline] [--abbrev-commit]`可以查看提交历史，以便确定要回退到哪个版本。
 - `git reflog`查看命令历史，以便确定要回到未来的哪个版本
 - `git rm <file>`用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
 
@@ -60,6 +60,18 @@
 - 修复后。可以通过`git stash list`查看`stash`列表，用`git stash apply stash @{0}`恢复。
 -  再`git stash pop`删除`stash`，回到工作现场。
 
+### 标签管理
+>标签也是版本库的一个快照，其实它就是指向某个commit的指针，tag就是容易记住的有意义的名字，跟某个commit绑在一起。
+- `git tag v1.0`切换到某个分支后可以采用命令进行打标签。
+- `git tag v0.9 commit-id`默认标签是打在最新提交的commit上的。有时需要对过去某次commit打标签。
+- `git tag`查看所有标签。
+- `git show <tagname>`查看标签信息。
+- `git tag -a <tagname> -m "blablabla..."`创建带有说明的标签，用-a指定标签名，-m指定说明文字。
+- `git tag -d v0.1`删除标签。
+- `git push origin <tagname>`推送某个标签。
+- `git push origin --tags`一次性推送全部尚未推送到远程的本地标签。
+- `git push origin :refs/tags/<tagname>`若标签已经推送到远程，要进行删除，先删除本地，再使用命令删除远程标签。
+
 ### 多人协作
 - 软件开发中，总有无穷无尽的新的功能要不断添加进来。
 - 添加一个新功能时，你肯定不希望因为一些实验性质的代码，把主分支搞乱了。
@@ -79,15 +91,6 @@
 - 在本地创建和远程分支对应的分支，使用`git checkout -b branch-name origin/branch-name`，本地和远程分支的名称最好一致；
 - 建立本地分支和远程分支的关联，使用`git branch --set-upstream branch-name origin/branch-name`；
 - 从远程抓取分支，使用`git pull`，如果有冲突，要先处理冲突。
-- `git tag <tagname>`用于新建一个标签，默认为HEAD，也可以指定一个commit id；
-- `git tag -a <tagname> -m "blablabla..."`可以指定标签信息；
-- `git tag`可以查看所有标签
-- `$ git tag -a v0.1 -m "version 0.1 released" 1094adb`。
-- `git show <tagname>`可以看到说明文字
-- `git push origin <tagname>`可以推送一个本地标签；
-- `git push origin --tags`可以推送全部未推送过的本地标签；
-- `git tag -d <tagname>`可以删除一个本地标签；
-- `git push origin :refs/tags/<tagname>`可以删除一个远程标签。
 
 ### 其他
 - 在GitHub上，可以任意Fork开源仓库；自己拥有**Fork**后的仓库的读写权限；
