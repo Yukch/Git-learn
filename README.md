@@ -27,7 +27,7 @@
 - 创建SSH Key。`$ ssh-keygen -t rsa -C "youremail@example.com"`，可以在用户主目录里找到`.ssh`目录，里面有`id_rsa`和`id_rsa.pub`两个文件
 - 登陆GitHub，打开**“Account settings”**，**“SSH Keys”**页面：
 - 然后，点**“Add SSH Key”**，填上任意Title，在Key文本框里粘贴`id_rsa.pub`文件的内容：
-- 要关联一个远程库，使用命令`$ git clone git@github.com:michaelliao/gitskills.git`
+- 要关联一个远程库，使用命令`git remote add origin git@github.com:michaelliao/learngit.git`
 - 关联后，使用命令`git push -u origin master`第一次推送master分支的所有内容；
 - 此后，每次本地提交后，只要有必要，就可以使用命令`git push origin master`推送最新修改；
 - 要克隆一个仓库，首先必须知道仓库的地址，然后使用`git clone <地址>`命令克隆。
