@@ -8,7 +8,7 @@
    `git commit -m "message"` 对添加的文件进行提交。
 - `git status` 查看工作区的状态。
 - `git diff <file>`如果文件被修改，可以查看修改内容。
-- `git reset --hard commit_id`HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭。
+- `git reset --hard commit_id`HEAD指向的版本就是当前版本，HEAD^指向前一个版本，因此，Git允许我们在版本的历史之间穿梭。
 - `git log [pretty=oneline]`可以查看提交历史，以便确定要回退到哪个版本。
 - `git reflog`查看命令历史，以便确定要回到未来的哪个版本
 - `git rm <file>`用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失最近一次提交后你修改的内容。
