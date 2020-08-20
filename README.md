@@ -55,10 +55,11 @@
 - 合并分支时，加上`--no-ff`参数就可以用普通模式合并，合并后的历史有分支，能看出来曾经做过合并，而`fast forward`合并就看不出来曾经做过合并，会丢掉分支信息。
 
 ### bug修复
+>在当前工作还没有提交并且暂时不打算提交时，对工作现场进行存储，处理完bug后恢复。
 - 修复bug时，我们会通过创建新的bug分支进行修复，然后合并，最后删除；
 - 修复前，如果手头工作没有完成时，先把工作现场`git stash`一下，然后去修复bug。
-- 修复后。可以通过`git stash list`查看`stash`列表，用`git stash apply stash @{0}`恢复。
--  再`git stash pop`删除`stash`，回到工作现场。
+- 修复后，可以通过`git stash list`查看`stash`列表，用`git stash apply stash @{0}`恢复，但需要用`git stash drop`删除`stash`内容。
+- 修复后也可使用`git stash pop`删除`stash`内容，回到工作现场。
 
 ### 标签管理
 >标签也是版本库的一个快照，其实它就是指向某个commit的指针，tag就是容易记住的有意义的名字，跟某个commit绑在一起。
